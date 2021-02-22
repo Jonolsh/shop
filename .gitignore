@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+*.pyc
+*.pyo
+
+.project
+.pydevproject
+.settings
+.tox/
+.cache
+
+dist
+*egg-info*
+bin/
+include/
+lib/
+distribute*
+share/
+*.sqlite
+database.db
+
+.tox
+node_modules/
+
+Notes.txt
