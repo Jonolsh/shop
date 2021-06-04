@@ -17,13 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from shop.views import main_page
 
+
+# http://127.0.0.1:8000/
 urlpatterns = [
-
+    path('', main_page),
     path('admin/', admin.site.urls),
     path('shop/', include(('shop.urls', 'shop'), namespace ='shop')),
-    path('cart/', include(('cart.urls', 'cart'), namespace = 'cart'))
+    path('cart/', include(('cart.urls', 'cart'), namespace = 'cart')),
+    path('orders/', include(('orders.urls', 'cart'), namespace = 'orders')),
+
 ]
 
 if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                      document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

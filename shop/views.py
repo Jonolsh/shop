@@ -3,7 +3,10 @@ from .models import Category, Product
 from cart.forms import CartAddProductForm
 
 
+# http://127.0.0.1:8000/shop/fructs/
 def product_list(request, category_slug=None):
+    print('category_slug = ', category_slug)
+    # category_slug = 'fructs'
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
@@ -28,3 +31,10 @@ def product_detail(request, id, slug):
                   'shop/product/detail.html',
                   {'product': product,
                   'cart_product_form': cart_product_form})
+
+def main_page(request):
+    return  render(request,
+                  'shop/main_page.html',
+                  )  
+
+
