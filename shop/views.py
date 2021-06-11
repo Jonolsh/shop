@@ -32,9 +32,13 @@ def product_detail(request, id, slug):
                   {'product': product,
                   'cart_product_form': cart_product_form})
 
+# def main_page(request):
+#     return  render(request,
+#                   'shop/main_page.html',
+#                   )  
+
 def main_page(request):
     return  render(request,
-                  'shop/main_page.html',
+                  'shop/bootstrap.html',
                   )  
-
 
