@@ -37,8 +37,12 @@ def product_detail(request, id, slug):
 #                   'shop/main_page.html',
 #                   )  
 
+# def main_page(request):
+#     return  render(request,
+#                   'shop/bootstrap.html',
+#                   )  
+
 def main_page(request):
     return  render(request,
-                  'shop/bootstrap.html',
+                  'shop/new_templates/content.html',
                   )  
-
