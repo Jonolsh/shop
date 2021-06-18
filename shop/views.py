@@ -46,3 +46,18 @@ def main_page(request):
     return  render(request,
                   'shop/new_templates/content.html',
                   )  
+
+def product_list_bootsrap_template(request, category_slug=None):
+    print('category_slug = ', category_slug)
+    # category_slug = 'fructs'
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request,
+                  'shop/new_templates/content.html',
+                  {'category': category,
+                   'categories': categories,
+                   'products': products})
