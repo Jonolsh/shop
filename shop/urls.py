@@ -12,11 +12,20 @@ app_name= 'shop'
 
 
 urlpatterns = [
-    path('', views.product_list, name='product_list'),
+    # path('', views.product_list, name='product_list'),
+    path('', views.product_list_bootsrap_template, name='product_list'),
+
+
     # http://127.0.0.1:8000/shop/bootstrap/
     path('bootstrap/', views.product_list_bootsrap_template),
-    path('<str:category_slug>/', views.product_list,
+
+
+    # path('<str:category_slug>/', views.product_list,
+    #     name='product_list_by_category'),
+    path('<str:category_slug>/', views.product_list_bootsrap_template,
         name='product_list_by_category'),
+
+
     # http://127.0.0.1:8000/shop/2/apelsin/
     path('<int:id>/<str:slug>/', views.product_detail,
         name='product_detail'),
