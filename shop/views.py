@@ -47,6 +47,7 @@ def main_page(request):
                   'shop/new_templates/content.html',
                   )  
 
+# http://127.0.0.1:8000/shop/bootstrap/
 def product_list_bootsrap_template(request, category_slug=None):
     print('category_slug = ', category_slug)
     # category_slug = 'fructs'
