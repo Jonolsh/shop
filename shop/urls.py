@@ -12,7 +12,7 @@ app_name= 'shop'
 
 
 urlpatterns = [
-    # path('', views.product_list, name='product_list'),
+    path('old', views.product_list, name='product_list'),
     path('', views.product_list_bootsrap_template, name='product_list'),
 
 
