@@ -19,7 +19,21 @@ def product_list(request, category_slug=None):
                    'categories': categories,
                    'products': products})
 
+# Старая
+# def product_detail(request, id, slug):
+#     product = get_object_or_404(Product,
+#                                 id=id,
+#                                 slug=slug,
+#                                 available=True)
+#     print("product id = ", product.id )
+#     cart_product_form = CartAddProductForm()
+#     return render(request,
+#                   'shop/product/detail.html',
+#                   {'product': product,
+#                   'cart_product_form': cart_product_form})
 
+
+# Новая
 def product_detail(request, id, slug):
     product = get_object_or_404(Product,
                                 id=id,
@@ -28,9 +42,11 @@ def product_detail(request, id, slug):
     print("product id = ", product.id )
     cart_product_form = CartAddProductForm()
     return render(request,
-                  'shop/product/detail.html',
+                  'shop/new_templates/detail.html',
                   {'product': product,
                   'cart_product_form': cart_product_form})
+
+
 
 # def main_page(request):
 #     return  render(request,
