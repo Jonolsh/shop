@@ -39,7 +39,8 @@ def product_detail(request, id, slug):
                                 id=id,
                                 slug=slug,
                                 available=True)
-    print("product id = ", product.id )
+    # product.stock -кол-во на складе
+    # print("product id = ", product.id )
     cart_product_form = CartAddProductForm()
     return render(request,
                   'shop/new_templates/detail.html',

@@ -8,6 +8,7 @@ from .forms import CartAddProductForm
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
+    print(request.COOKIES)
     product = get_object_or_404(Product, id=product_id)
     form = CartAddProductForm(request.POST)
     if form.is_valid():
@@ -23,9 +24,14 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart:cart_detail')
 
+import sys
+stdout_fileno = sys.stdout
 def cart_detail(request):
+    # print(request.COOKIES)
+    stdout_fileno.write(str(request.COOKIES))
     cart = Cart(request)
-    return render(request, 'cart/detail.html', {'cart': cart})
+    return render(request, 'cart/cart.html', {'cart': cart})
+    # return render(request, 'cart/detail.html', {'cart': cart})
 
 
 
