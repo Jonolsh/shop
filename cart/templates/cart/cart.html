@@ -63,13 +63,38 @@
                                 </div>
                             {% endwith %}
                         {% endfor %}
+                        
+                        {% if cart.coupon %}
+                        <div class="order_total">
+                            <div class="order_total_content text-md-right">
+                                <div class="order_total_title">Subtotal:</div>
+                                <div class="order_total_amount">${{ cart.get_total_price }}</div>
+                            </div>
+                            <div class="order_total_content text-md-right">
+                                <div class="order_total_title">"{{ cart.coupon.code }}" coupon
+                    ({{ cart.coupon.discount }}% off)</div>
+                                <div class="order_total_amount">- ${{ cart.get_discount|floatformat:"2" }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
 
                         <div class="order_total">
                             <div class="order_total_content text-md-right">
                                 <div class="order_total_title">Order Total:</div>
-                                <div class="order_total_amount">${{ cart.get_total_price }}</div>
+                                <div class="order_total_amount">${{ cart.get_total_price_after_discount|floatformat:"2" }}</div>
                             </div>
                         </div>
+                        
+                        <div class="coupons_form">
+                            <div class="coupons_content text-md-right">
+                                <form class="coupons_content_form" action="{% url "coupons:apply" %}" method="post">
+                                    {{ coupon_apply_form }}
+                                    <input type="submit" value="Apply">
+                                    {% csrf_token %}
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="cart_buttons"> 
                             <!-- <a href="{ % url "shop:product_list" %}" class="button cart_button_clear">Continue Shopping</a> -->
                             <button onclick="location.href='{% url "shop:product_list" %}'" type="button" class="button cart_button_clear">Continue Shopping</button> 

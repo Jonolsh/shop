@@ -56,6 +56,7 @@
                 </td>
             </tr>
         {% endif %}
+
         <tr class="total">
             <td>Total</td>
             <td colspan="4"></td>
@@ -66,6 +67,7 @@
 
         </tbody>
     </table>
+    
     <form action="{% url "coupons:apply" %}" method="post">
         {{ coupon_apply_form }}
         <input type="submit" value="Apply">
