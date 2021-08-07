@@ -8,6 +8,7 @@ from .forms import CouponApplyForm
 @require_POST
 def coupon_apply(request):
     now = timezone.now()
+    print(request.session.keys())
     form = CouponApplyForm(request.POST)
     if form.is_valid():
         code = form.cleaned_data['code']
