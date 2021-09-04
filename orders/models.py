@@ -14,7 +14,8 @@ class Order(models.Model):
     city = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
+    # This field can be changed as status
+    paid = models.BooleanField(default=False, verbose_name='Payment Status')
     coupon = models.ForeignKey(Coupon,
                                 related_name='orders',
                                 null=True,
@@ -23,6 +24,7 @@ class Order(models.Model):
     discount = models.IntegerField(default=0,
                                     validators=[MinValueValidator(0),
                                                 MaxValueValidator(100)])
+    stripe_payment_intent = models.CharField(null=True, max_length=200)
 
     class Meta:
         ordering = ('-created',)

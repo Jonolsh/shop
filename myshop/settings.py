@@ -136,3 +136,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
+
+if DEBUG:
+    # STRIPE_PUBLISHABLE_KEY = 'test_publishable_key'
+    # STRIPE_SECRET_KEY = 'test_secret_key'
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_51JGRrHCTZDAGFneNjy1sEJh985JHltkuUFdlfa3gsmlN7SfPFwaiPgtK6sk2NLeoyJqIK6I1oWNkSi7VtnUjB2jr00tGhgihur'
+    STRIPE_SECRET_KEY = 'sk_test_51JGRrHCTZDAGFneN9UjYxvICZqDbDo44w4rCFGIobWOJI1ltdvx5B4C7imgwmtDK5aZVSGzDJBZaSSLSopEqVQWU00MOv7HwB9'
